@@ -1,6 +1,7 @@
 package configs
 
 import (
+	"github.com/superpiposo/go_gerfin_api/schema"
 	"gorm.io/gorm"
 )
 
@@ -9,6 +10,8 @@ var (
 )
 
 func Init() error {
+	db, _ = InitializePostgres()
+	db.AutoMigrate(&schema.Usuarios{})
 	return nil
 
 }
